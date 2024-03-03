@@ -4,12 +4,12 @@ const CommentSchema = mongoose.Schema({
   author: {
     type: Schema.Types.ObjectId,
     ref: "User",
-    required: true,
+    required: [true, "Author is obligatory"],
   },
   post: {
     type: Schema.Types.ObjectId,
     ref: "Post",
-    required: true,
+    required: [true, "A post is needed"],
   },
   content: {
     type: String,
