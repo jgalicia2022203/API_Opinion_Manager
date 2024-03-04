@@ -4,16 +4,16 @@ import cors from "cors";
 import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
-/* import authRoutes from "../src/auth/auth.routes.js";
-import userRoutes from "../src/users/user.routes.js"; */
+import authRoutes from "../src/auth/auth.routes.js";
+import userRoutes from "../src/users/user.routes.js";
 import { dbConnection } from "./mongo.js";
 
 class Server {
   constructor() {
     this.app = express();
     this.port = process.env.PORT;
-    /* this.usuarioPath = "/coffeApi/v1/users";
-    this.authPath = "/coffeApi/v1/auth"; */
+    this.userPath = "/opinionAPI/v1/users";
+    this.authPath = "/opinionAPI/v1/auth";
 
     this.middlewares();
     this.conectarDB();
@@ -33,8 +33,8 @@ class Server {
   }
 
   routes() {
-    /* this.app.use(this.usuarioPath, userRoutes);
-    this.app.use(this.authPath, authRoutes); */
+    this.app.use(this.userPath, userRoutes);
+    this.app.use(this.authPath, authRoutes);
   }
 
   listen() {

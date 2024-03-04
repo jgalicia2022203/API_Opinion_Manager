@@ -1,5 +1,5 @@
 import bcryptjs from "bcryptjs";
-import Comment from "../comments/comment.js";
+import Comment from "../comments/comment.model.js";
 import Post from "../posts/post.model.js";
 import User from "./user.model.js";
 
@@ -150,10 +150,11 @@ export const getUserComments = async (req, res) => {
 
 export const createPost = async (req, res) => {
   const { title, category, content } = req.body;
-  const user = req.user.id;
+  const author = req.user.id;
 
   try {
     const post = new Post({
+      author,
       title,
       category,
       content,
@@ -161,7 +162,7 @@ export const createPost = async (req, res) => {
     await post.save();
 
     await User.findByIdAndUpdate(
-      user,
+      author,
       { $push: { posts: post._id } },
       { new: true }
     );
@@ -229,13 +230,13 @@ export const deletePost = async (req, res) => {
 
 export const createComment = async (req, res) => {
   const author = req.user.id;
-  const postId = req.params.id;
-  const content = req.body;
+  const post = req.params.id;
+  const { content } = req.body;
 
   try {
     const comment = new Comment({
       author,
-      postId,
+      post,
       content,
     });
     await comment.save();
@@ -247,7 +248,7 @@ export const createComment = async (req, res) => {
     );
 
     await Post.findByIdAndUpdate(
-      postId,
+      post,
       { $push: { comments: comment._id } },
       { new: true }
     );
@@ -262,7 +263,7 @@ export const createComment = async (req, res) => {
 export const updateComment = async (req, res) => {
   const author = req.user.id;
   const commentId = req.params.id;
-  const content = req.body;
+  const { content } = req.body;
 
   try {
     const existingComment = await Comment.findById(commentId);
@@ -308,6 +309,8 @@ export const deleteComment = async (req, res) => {
     const postId = existingComment.post;
 
     await Post.findByIdAndUpdate(postId, { $pull: { comments: commentId } });
+
+    await User.findByIdAndUpdate(postId, { $pull: { comments: commentId } });
 
     res.status(201).json({
       msg: "Comment deleted successfully",

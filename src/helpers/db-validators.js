@@ -1,12 +1,29 @@
-import Comment from "../comments/comment.js";
-import Post from "../posts/post.js";
+import Comment from "../comments/comment.model.js";
+import Post from "../posts/post.model.js";
 import Role from "../role/role.js";
-import User from "../users/user.js";
+import User from "../users/user.model.js";
 
 export const validRole = async (role = "") => {
   const existsRole = await Role.findOne({ role });
   if (!existsRole) {
     throw new Error(`role ${role} doesn't exist in database`);
+  }
+};
+
+export const existsUsername_Login = async (username = "") => {
+  const existingUsername = await User.findOne({ username });
+  return !!existingUsername;
+};
+
+export const existEmail_Login = async (email = "") => {
+  const existingEmail = await User.findOne({ email });
+  return !!existingEmail;
+};
+
+export const existsUsername = async (username = "") => {
+  const existsUsername = await User.findOne({ username });
+  if (existsUsername) {
+    throw new Error(`the username ${username} is already registered`);
   }
 };
 

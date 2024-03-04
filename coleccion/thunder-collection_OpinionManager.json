@@ -1,0 +1,332 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "OpinionManager",
+    "dateExported": "2024-03-04T04:12:04.382Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "7eb7719d-f2d9-4a76-97a0-12ccffa75aab",
+            "name": "USER",
+            "containerId": "",
+            "created": "2024-03-02T19:30:11.892Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "6bad09fc-3c8b-4531-aae1-101059fe21ec",
+            "name": "POSTS",
+            "containerId": "",
+            "created": "2024-03-02T19:30:28.830Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "def44864-3e4c-449e-a107-9f1067831b34",
+            "name": "COMMENTS",
+            "containerId": "",
+            "created": "2024-03-02T19:41:09.385Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "5996ea8c-02f2-4c8c-ae50-68745a5e4c30",
+            "colId": "610bb721-f77c-4a12-985c-aa48c1523fb3",
+            "containerId": "7eb7719d-f2d9-4a76-97a0-12ccffa75aab",
+            "name": "REGISTER",
+            "url": "http://localhost:3000/opinionAPI/v1/users/register",
+            "method": "POST",
+            "sortNum": 5000,
+            "created": "2024-03-02T19:29:00.676Z",
+            "modified": "2024-03-04T03:33:25.726Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"braulio80\",\n  \"email\": \"braulio80@gmail.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "4705d364-a555-4113-a82d-ab1fe44a0b62",
+            "colId": "610bb721-f77c-4a12-985c-aa48c1523fb3",
+            "containerId": "7eb7719d-f2d9-4a76-97a0-12ccffa75aab",
+            "name": "LOGIN",
+            "url": "http://localhost:3000/opinionAPI/v1/auth/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-02T19:28:39.696Z",
+            "modified": "2024-03-04T04:05:54.292Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"emailOrUsername\": \"braulio80\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "84e60c9d-f6dc-4505-9f3c-a71cba270f6b",
+            "colId": "610bb721-f77c-4a12-985c-aa48c1523fb3",
+            "containerId": "7eb7719d-f2d9-4a76-97a0-12ccffa75aab",
+            "name": "USER PROFILE",
+            "url": "http://localhost:3000/opinionAPI/v1/users/profile",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-02T19:36:34.979Z",
+            "modified": "2024-03-04T04:06:58.697Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "90df9b07-751e-45f3-b70e-70c66850d80a",
+            "colId": "610bb721-f77c-4a12-985c-aa48c1523fb3",
+            "containerId": "7eb7719d-f2d9-4a76-97a0-12ccffa75aab",
+            "name": "UPDATE PROFILE",
+            "url": "http://localhost:3000/opinionAPI/v1/users/profile",
+            "method": "PUT",
+            "sortNum": 22500,
+            "created": "2024-03-02T19:29:28.905Z",
+            "modified": "2024-03-04T04:06:54.932Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"profile_info\": {\n        \"name\": \"braulio800\",\n        \"avatar_url\": \"https://example.com/avatar.jpg\",\n        \"bio\": \"hi :D\"\n    }\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f58c2b65-e2cf-4576-86e9-fbccd5ef1031",
+            "colId": "610bb721-f77c-4a12-985c-aa48c1523fb3",
+            "containerId": "7eb7719d-f2d9-4a76-97a0-12ccffa75aab",
+            "name": "UPDATE USERNAME",
+            "url": "http://localhost:3000/opinionAPI/v1/users/profile/username",
+            "method": "PUT",
+            "sortNum": 23750,
+            "created": "2024-03-04T02:47:15.950Z",
+            "modified": "2024-03-04T04:06:50.571Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"currentPassword\": \"123456\",\n  \"newUsername\": \"braulio800\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "72ddec87-0a06-41b8-a4fd-61d12df7784c",
+            "colId": "610bb721-f77c-4a12-985c-aa48c1523fb3",
+            "containerId": "7eb7719d-f2d9-4a76-97a0-12ccffa75aab",
+            "name": "UPDATE PASSWORD",
+            "url": "http://localhost:3000/opinionAPI/v1/users/profile/password",
+            "method": "PUT",
+            "sortNum": 24375,
+            "created": "2024-03-04T02:47:33.530Z",
+            "modified": "2024-03-04T04:07:19.828Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"currentPassword\": \"123456\",\n  \"newPassword\": \"1234567\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7b4da80c-482a-4c28-9ca7-84d571b8070b",
+            "colId": "610bb721-f77c-4a12-985c-aa48c1523fb3",
+            "containerId": "7eb7719d-f2d9-4a76-97a0-12ccffa75aab",
+            "name": "USER POSTS",
+            "url": "http://localhost:3000/opinionAPI/v1/users/posts",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2024-03-02T19:37:05.448Z",
+            "modified": "2024-03-04T04:07:43.942Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "db54136a-182f-45d9-9df9-845bf8c8b84f",
+            "colId": "610bb721-f77c-4a12-985c-aa48c1523fb3",
+            "containerId": "6bad09fc-3c8b-4531-aae1-101059fe21ec",
+            "name": "NEW POST",
+            "url": "http://localhost:3000/opinionAPI/v1/users/posts",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-03-02T19:31:21.727Z",
+            "modified": "2024-03-04T04:08:21.847Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Post\",\n  \"category\": \"posts\",\n  \"content\": \"content\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5a6657ff-f89f-4bdc-94cb-74ebe296d2d5",
+            "colId": "610bb721-f77c-4a12-985c-aa48c1523fb3",
+            "containerId": "6bad09fc-3c8b-4531-aae1-101059fe21ec",
+            "name": "UPDATE POST",
+            "url": "http://localhost:3000/opinionAPI/v1/users/posts/postid_here",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-03-02T19:32:03.414Z",
+            "modified": "2024-03-04T04:09:00.786Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"newTitle\",\n  \"category\": \"newCategory\",\n  \"content\": \"newContent\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7e7061f1-8ed7-4d40-a5ae-ae59b3d0e082",
+            "colId": "610bb721-f77c-4a12-985c-aa48c1523fb3",
+            "containerId": "6bad09fc-3c8b-4531-aae1-101059fe21ec",
+            "name": "DELETE POST",
+            "url": "http://localhost:3000/opinionAPI/v1/users/posts/postid_here",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2024-03-02T19:39:58.986Z",
+            "modified": "2024-03-04T04:09:35.201Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "219aafaf-21de-4483-b09c-9423c7481836",
+            "colId": "610bb721-f77c-4a12-985c-aa48c1523fb3",
+            "containerId": "7eb7719d-f2d9-4a76-97a0-12ccffa75aab",
+            "name": "USER COMMENTS",
+            "url": "http://localhost:3000/opinionAPI/v1/users/replies",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-03-02T19:40:39.257Z",
+            "modified": "2024-03-04T04:07:58.370Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7d840ae0-f7ac-4da6-bca1-d0dea2147503",
+            "colId": "610bb721-f77c-4a12-985c-aa48c1523fb3",
+            "containerId": "def44864-3e4c-449e-a107-9f1067831b34",
+            "name": "NEW COMMENT",
+            "url": "http://localhost:3000/opinionAPI/v1/users/replies/postid_here",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2024-03-02T19:41:30.451Z",
+            "modified": "2024-03-04T04:10:16.104Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"content\": \"newContent\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1de59002-ef0c-4fce-b28b-b2c91c17b030",
+            "colId": "610bb721-f77c-4a12-985c-aa48c1523fb3",
+            "containerId": "def44864-3e4c-449e-a107-9f1067831b34",
+            "name": "UPDATE COMMENT",
+            "url": "http://localhost:3000/opinionAPI/v1/users/replies/commentid_here",
+            "method": "PUT",
+            "sortNum": 130000,
+            "created": "2024-03-02T19:41:45.668Z",
+            "modified": "2024-03-04T04:10:34.414Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"content\": \"contentUpdated\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "94fdc574-be00-40fd-adc5-77a64fa9bb02",
+            "colId": "610bb721-f77c-4a12-985c-aa48c1523fb3",
+            "containerId": "def44864-3e4c-449e-a107-9f1067831b34",
+            "name": "DELETE COMMENT",
+            "url": "http://localhost:3000/opinionAPI/v1/users/replies/commentid_here",
+            "method": "DELETE",
+            "sortNum": 140000,
+            "created": "2024-03-02T19:44:53.399Z",
+            "modified": "2024-03-04T04:10:51.892Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
